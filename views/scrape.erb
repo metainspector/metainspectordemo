@@ -1,0 +1,46 @@
+<div class="hero-unit">
+  <h1>MetaInspector results for:</h1>
+  <h2 style="margin-bottom:6px;"><%= @page.url %></h2>
+</div>
+
+<div class="row">
+  <div class="span14 offset1">
+    <% if @page.errors.any? %>
+      <h2>Ooops!!! MetaInspector couldn't scrape this page and complained about:</h2>
+      <ul>
+        <% @page.errors.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <%= show_if_present 'Title',    @page.title %>
+
+      <%= show_if_present 'Description',  @page.description %>
+      <%= show_if_present 'Keywords',     @page.meta_keywords %>
+      <%= link_if_present 'URL',          @page.url %>
+      <%= show_if_present 'Scheme',       @page.scheme %>
+      <%= show_if_present 'Host',         @page.host %>
+      <%= link_if_present 'Root URL',     @page.root_url %>
+      <%= link_if_present 'Feed URL',     @page.feed %>
+
+      <%= show_if_present 'Meta robots',            @page.meta_robots %>
+      <%= show_if_present 'Meta generator',         @page.meta_generator %>
+      <%= show_if_present 'Meta content language',  @page.meta_content_language %>
+
+      <% if @page.images.any? %>
+        <h3>Images</h3>
+        <%= paint_images (@page.images << @page.image).uniq %>
+      <% end %>
+
+      <% if @page.links.any? %>
+        <h3>Links</h3>
+        <ul>
+          <%= links_to_li @page.links %>
+        </ul>
+      <% end %>
+
+      <hr>
+      <%= show_if_present '...or everything as a hash', @page.to_hash %>
+    <% end %>
+  </div>
+</div>
