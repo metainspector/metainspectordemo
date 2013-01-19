@@ -27,7 +27,7 @@ end
 
 get '/scrape' do
   if params[:url]
-    @page = MetaInspector.new(params[:url])
+    @page = MetaInspector.new(params[:url], :allow_redirections => :all)
     @page.title # warm up
     erb :scrape
   else
