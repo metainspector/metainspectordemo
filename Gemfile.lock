@@ -1,11 +1,11 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
-    addressable (2.3.3)
-    backports (3.1.1)
+    addressable (2.3.4)
+    backports (3.3.0)
     eventmachine (1.0.3)
     hashie (1.2.0)
-    metainspector (1.15.2)
+    metainspector (1.15.3)
       addressable (~> 2.3.2)
       nokogiri (~> 1.5)
       open_uri_redirections (~> 0.1.0)
@@ -19,18 +19,18 @@ GEM
       rack (>= 1.0)
     rash (0.3.2)
       hashie (~> 1.2.0)
-    sinatra (1.3.6)
-      rack (~> 1.4)
-      rack-protection (~> 1.3)
-      tilt (~> 1.3, >= 1.3.3)
-    sinatra-contrib (1.3.2)
+    sinatra (1.4.2)
+      rack (~> 1.5, >= 1.5.2)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
+    sinatra-contrib (1.4.0)
       backports (>= 2.0)
       eventmachine
       rack-protection
       rack-test
-      sinatra (~> 1.3.0)
+      sinatra (~> 1.4.2)
       tilt (~> 1.3)
-    tilt (1.3.6)
+    tilt (1.3.7)
 
 PLATFORMS
   ruby
