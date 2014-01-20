@@ -5,18 +5,18 @@
 
 <div class="row">
   <div class="span14 offset1">
-    <% if @page.errors.any? %>
+    <% if @page.exceptions.any? %>
       <h2>Ooops!!! MetaInspector couldn't scrape this page and complained about:</h2>
       <ul>
-        <% @page.errors.each do |error| %>
-          <li><%= error %></li>
+        <% @page.exceptions.each do |exception| %>
+          <li><%= exception %></li>
         <% end %>
       </ul>
     <% else %>
-      <%= show_if_present 'Title',    @page.title %>
+      <%= show_if_present 'Title',        @page.title %>
 
       <%= show_if_present 'Description',  @page.description %>
-      <%= show_if_present 'Keywords',     @page.meta_keywords %>
+      <%= show_if_present 'Keywords',     @page.meta['keywords'] %>
       <%= show_if_present 'Charset',      @page.charset %>
       <%= link_if_present 'URL',          @page.url %>
       <%= show_if_present 'Scheme',       @page.scheme %>
@@ -24,9 +24,8 @@
       <%= link_if_present 'Root URL',     @page.root_url %>
       <%= link_if_present 'Feed URL',     @page.feed %>
 
-      <%= show_if_present 'Meta robots',            @page.meta_robots %>
-      <%= show_if_present 'Meta generator',         @page.meta_generator %>
-      <%= show_if_present 'Meta content language',  @page.meta_content_language %>
+      <%= show_if_present 'Meta robots',            @page.meta['robots'] %>
+      <%= show_if_present 'Meta generator',         @page.meta['generator'] %>
 
       <% if @page.images.any? %>
         <h3>Images</h3>
@@ -39,6 +38,8 @@
           <%= links_to_li @page.links %>
         </ul>
       <% end %>
+
+      <%= show_if_present 'Meta tags', @page.meta_tags %>
 
       <hr>
       <%= show_if_present '...or everything as a hash', @page.to_hash %>
