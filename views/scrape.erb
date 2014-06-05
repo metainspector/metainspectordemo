@@ -29,7 +29,7 @@
 
       <% if @page.images.any? %>
         <h3>Images</h3>
-        <%= paint_images (@page.images << @page.image).uniq %>
+        <%= paint_images @page.images %>
       <% end %>
 
       <% if @page.links.any? %>
