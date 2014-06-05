@@ -8,7 +8,7 @@
     <% if @page.exceptions.any? %>
       <h2>Ooops!!! MetaInspector couldn't scrape this page and complained about:</h2>
       <ul>
-        <% @page.exceptions.each do |exception| %>
+        <% @page.exceptions.uniq {|e| e.message}.each do |exception| %>
           <li><%= exception %></li>
         <% end %>
       </ul>
@@ -39,7 +39,9 @@
         </ul>
       <% end %>
 
-      <%= show_if_present 'Meta tags', @page.meta_tags %>
+      <%= show_if_present 'Meta tags', @page.meta_tags.inspect %>
+
+      <%= show_if_present 'Meta tags (shorter format)', @page.meta %>
 
       <hr>
       <%= show_if_present '...or everything as a hash', @page.to_hash %>
