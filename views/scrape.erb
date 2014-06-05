@@ -24,8 +24,8 @@
       <%= link_if_present 'Root URL',     @page.root_url %>
       <%= link_if_present 'Feed URL',     @page.feed %>
 
-      <%= show_if_present 'Meta robots',            @page.meta['robots'] %>
-      <%= show_if_present 'Meta generator',         @page.meta['generator'] %>
+      <%= show_if_present 'Meta robots',    @page.meta['robots'] %>
+      <%= show_if_present 'Meta generator', @page.meta['generator'] %>
 
       <% if @page.images.any? %>
         <h3>Images</h3>
@@ -39,12 +39,14 @@
         </ul>
       <% end %>
 
-      <%= show_if_present 'Meta tags', @page.meta_tags.inspect %>
+      <h3>Meta tags</h3>
+      <pre><code><%= @page.meta_tags %></code></pre>
 
-      <%= show_if_present 'Meta tags (shorter format)', @page.meta %>
+      <h3>Meta tags (shorter format)</h3>
+      <pre><code><%= @page.meta %></code></pre>
 
-      <hr>
-      <%= show_if_present '...or everything as a hash', @page.to_hash %>
+      <h3>...or everything as a hash</h3>
+      <pre><code><%= @page.to_hash %></code></pre>
     <% end %>
   </div>
 </div>
