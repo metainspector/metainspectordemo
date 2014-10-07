@@ -27,7 +27,7 @@ end
 
 get '/scrape' do
   if params[:url]
-    @page = MetaInspector.new(params[:url], allow_redirections: :all, warn_level: :store)
+    @page = MetaInspector.new(params[:url], warn_level: :store)
     erb :scrape
   else
     redirect "/"
