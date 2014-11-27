@@ -51,5 +51,6 @@ PLATFORMS
 
 DEPENDENCIES
   metainspector
+  nokogiri (~> 1.6.3)
   sinatra
   sinatra-contrib
