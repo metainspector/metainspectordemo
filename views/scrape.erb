@@ -32,10 +32,10 @@
         <%= paint_images @page.images %>
       <% end %>
 
-      <% if @page.links.any? %>
+      <% if @page.links.all.any? %>
         <h3>Links</h3>
         <ul>
-          <%= links_to_li @page.links %>
+          <%= links_to_li @page.links.all %>
         </ul>
       <% end %>
 
