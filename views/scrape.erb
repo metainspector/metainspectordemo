@@ -29,6 +29,26 @@
 
       <% if @page.images.any? %>
         <h3>Images</h3>
+
+        <% if @page.images.owner_suggested %>
+          <h4>Suggested by owner (OG / Twitter tags)</h4>
+          <%= paint_images [@page.images.owner_suggested] %>
+          <hr />
+        <% end %>
+
+        <% if @page.images.largest %>
+          <h4>Largest image</h4>
+          <%= paint_images [@page.images.largest] %>
+          <hr />
+        <% end %>
+
+        <% if @page.images.best %>
+          <h4>Best image</h4>
+          <%= paint_images [@page.images.best] %>
+          <hr />
+        <% end %>
+
+        <h4>All images</h4>
         <%= paint_images @page.images %>
       <% end %>
 
