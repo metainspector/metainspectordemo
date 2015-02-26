@@ -26,7 +26,7 @@ get '/' do
 end
 
 get '/scrape' do
-  if params[:url] && !params[:url].empty?
+  if params[:url]
     @page = MetaInspector.new(params[:url],
                               :warn_level => :store,
                               :connection_timeout => 5, :read_timeout => 5,
