@@ -9,7 +9,7 @@ helpers do
   end
 
   def link_if_present(title, value)
-    show_if_present(title, "<a href='value'>#{value}</a>") unless value.nil? || value.length == 0
+    show_if_present(title, "<a href='#{value}'>#{value}</a>") unless value.nil? || value.length == 0
   end
 
   def paint_images(images)
