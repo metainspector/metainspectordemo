@@ -30,7 +30,8 @@ get '/scrape' do
     @page = MetaInspector.new(params[:url],
                               :warn_level => :store,
                               :connection_timeout => 5, :read_timeout => 5,
-                              :headers => { 'User-Agent' => user_agent, 'Accept-Encoding' => 'identity' })
+                              :headers => { 'User-Agent' => user_agent, 'Accept-Encoding' => 'identity' },
+                              :faraday_options => { :ssl => { :verify => false } })
     erb :scrape
   else
     redirect "/"
