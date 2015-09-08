@@ -10,17 +10,17 @@ GEM
     faraday-cookie_jar (0.0.6)
       faraday (>= 0.7.4)
       http-cookie (~> 1.0.0)
-    faraday_middleware (0.9.1)
+    faraday_middleware (0.10.0)
       faraday (>= 0.7.4, < 0.10)
     fastimage (1.7.0)
       addressable (~> 2.3, >= 2.3.5)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
-    metainspector (4.6.0)
+    metainspector (4.6.1)
       addressable (~> 2.3.5)
       faraday (~> 0.9.0)
       faraday-cookie_jar (~> 0.0.6)
-      faraday_middleware (~> 0.9.1)
+      faraday_middleware (~> 0.10)
       fastimage
       nokogiri (~> 1.6)
     mini_portile (0.6.0)
@@ -57,3 +57,6 @@ DEPENDENCIES
   nokogiri (= 1.6.3)
   sinatra
   sinatra-contrib
+
+BUNDLED WITH
+   1.10.6
