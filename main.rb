@@ -39,8 +39,9 @@ get '/scrape' do
   end
 end
 
-error MetaInspector::Error do
-  @exception = env['sinatra.error'].message
+error MetaInspector::RequestError do
+  @exception_title = env['sinatra.error'].class.to_s
+  @exception_msg   = env['sinatra.error'].message
   erb :error
 end
 
