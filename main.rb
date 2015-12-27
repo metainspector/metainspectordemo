@@ -3,6 +3,8 @@ require 'sinatra/reloader'
 require 'metainspector'
 require 'open-uri'
 
+set :show_exceptions, :after_handler
+
 helpers do
   def show_if_present(title, value)
     "<h3>#{title}</h3><p>#{value}</p>" unless value.nil? || value.length == 0
@@ -28,7 +30,6 @@ end
 get '/scrape' do
   if params[:url]
     @page = MetaInspector.new(params[:url],
-                              :warn_level => :store,
                               :connection_timeout => 5, :read_timeout => 5,
                               :headers => { 'User-Agent' => user_agent, 'Accept-Encoding' => 'identity' },
                               :faraday_options => { :ssl => { :verify => false } })
@@ -36,6 +37,11 @@ get '/scrape' do
   else
     redirect "/"
   end
+end
+
+error MetaInspector::Error do
+  @exception = env['sinatra.error'].message
+  erb :error
 end
 
 private

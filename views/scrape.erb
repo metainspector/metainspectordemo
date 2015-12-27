@@ -5,68 +5,59 @@
 
 <div class="row">
   <div class="span14 offset1">
-    <% if @page.exceptions.any? %>
-      <h2>Ooops!!! MetaInspector couldn't scrape this page and complained about:</h2>
-      <ul>
-        <% @page.exceptions.uniq {|e| e.message}.each do |exception| %>
-          <li><%= exception %></li>
-        <% end %>
-      </ul>
-    <% else %>
-      <%= show_if_present 'Title',        @page.best_title %>
+    <%= show_if_present 'Title',        @page.best_title %>
 
-      <%= show_if_present 'Description',  @page.description %>
-      <%= show_if_present 'Keywords',     @page.meta['keywords'] %>
-      <%= show_if_present 'Charset',      @page.charset %>
-      <%= link_if_present 'URL',          @page.url %>
-      <%= show_if_present 'Scheme',       @page.scheme %>
-      <%= show_if_present 'Host',         @page.host %>
-      <%= link_if_present 'Root URL',     @page.root_url %>
-      <%= link_if_present 'Feed URL',     @page.feed %>
+    <%= show_if_present 'Description',  @page.description %>
+    <%= show_if_present 'Keywords',     @page.meta['keywords'] %>
+    <%= show_if_present 'Charset',      @page.charset %>
+    <%= link_if_present 'URL',          @page.url %>
+    <%= show_if_present 'Scheme',       @page.scheme %>
+    <%= show_if_present 'Host',         @page.host %>
+    <%= link_if_present 'Root URL',     @page.root_url %>
+    <%= link_if_present 'Feed URL',     @page.feed %>
 
-      <%= show_if_present 'Meta robots',    @page.meta['robots'] %>
-      <%= show_if_present 'Meta generator', @page.meta['generator'] %>
+    <%= show_if_present 'Meta robots',    @page.meta['robots'] %>
+    <%= show_if_present 'Meta generator', @page.meta['generator'] %>
 
-      <% if @page.images.any? %>
-        <h3>Images</h3>
+    <% if @page.images.any? %>
+      <h3>Images</h3>
 
-        <% if @page.images.owner_suggested %>
-          <h4>Suggested by owner (OG / Twitter tags)</h4>
-          <%= paint_images [@page.images.owner_suggested] %>
-          <hr />
-        <% end %>
-
-        <% if @page.images.largest %>
-          <h4>Largest image</h4>
-          <%= paint_images [@page.images.largest] %>
-          <hr />
-        <% end %>
-
-        <% if @page.images.best %>
-          <h4>Best image</h4>
-          <%= paint_images [@page.images.best] %>
-          <hr />
-        <% end %>
-
-        <h4>All images</h4>
-        <%= paint_images @page.images %>
+      <% if @page.images.owner_suggested %>
+        <h4>Suggested by owner (OG / Twitter tags)</h4>
+        <%= paint_images [@page.images.owner_suggested] %>
+        <hr />
       <% end %>
 
-      <% if @page.links.all.any? %>
-        <h3>Links</h3>
-        <ul>
-          <%= links_to_li @page.links.all %>
-        </ul>
+      <% if @page.images.largest %>
+        <h4>Largest image</h4>
+        <%= paint_images [@page.images.largest] %>
+        <hr />
       <% end %>
 
-      <h3>Meta tags</h3>
-      <pre><code><%= @page.meta_tags %></code></pre>
+      <% if @page.images.best %>
+        <h4>Best image</h4>
+        <%= paint_images [@page.images.best] %>
+        <hr />
+      <% end %>
 
-      <h3>Meta tags (shorter format)</h3>
-      <pre><code><%= @page.meta %></code></pre>
-
-      <h3>...or everything as a hash</h3>
-      <pre><code><%= @page.to_hash %></code></pre>
+      <h4>All images</h4>
+      <%= paint_images @page.images %>
     <% end %>
+
+    <% if @page.links.all.any? %>
+      <h3>Links</h3>
+      <ul>
+        <%= links_to_li @page.links.all %>
+      </ul>
+    <% end %>
+
+    <h3>Meta tags</h3>
+    <pre><code><%= @page.meta_tags %></code></pre>
+
+    <h3>Meta tags (shorter format)</h3>
+    <pre><code><%= @page.meta %></code></pre>
+
+    <h3>...or everything as a hash</h3>
+    <pre><code><%= @page.to_hash %></code></pre>
   </div>
 </div>
