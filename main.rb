@@ -32,14 +32,15 @@ get '/scrape' do
     @page = MetaInspector.new(params[:url],
                               :connection_timeout => 5, :read_timeout => 5,
                               :headers => { 'User-Agent' => user_agent, 'Accept-Encoding' => 'identity' },
-                              :faraday_options => { :ssl => { :verify => false } })
+                              :faraday_options => { :ssl => { :verify => false } },
+                              :html_content_only => true)
     erb :scrape
   else
     redirect "/"
   end
 end
 
-error MetaInspector::RequestError do
+error MetaInspector::Error do
   @exception_title = env['sinatra.error'].class.to_s
   @exception_msg   = env['sinatra.error'].message
   erb :error
