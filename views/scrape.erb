@@ -9,6 +9,7 @@
 
     <%= show_if_present 'Description',  @page.best_description %>
     <%= show_if_present 'Keywords',     @page.meta['keywords'] %>
+    <%= show_if_present 'Author',       @page.best_author %>
     <%= show_if_present 'Charset',      @page.charset %>
     <%= link_if_present 'URL',          @page.url %>
     <%= show_if_present 'Scheme',       @page.scheme %>
