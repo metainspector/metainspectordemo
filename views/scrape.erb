@@ -15,7 +15,10 @@
     <%= show_if_present 'Scheme',       @page.scheme %>
     <%= show_if_present 'Host',         @page.host %>
     <%= link_if_present 'Root URL',     @page.root_url %>
-    <%= link_if_present 'Feed URL',     @page.feed %>
+    
+    <% if @page.feeds.any? %>
+      <%= link_if_present 'Feed URL',     @page.feeds.first[:href] %>
+    <% end %>
 
     <%= show_if_present 'Meta robots',    @page.meta['robots'] %>
     <%= show_if_present 'Meta generator', @page.meta['generator'] %>
