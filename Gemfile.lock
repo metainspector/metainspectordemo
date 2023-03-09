@@ -16,23 +16,23 @@ GEM
     open_uri_redirections (0.1.4)
     racc (1.6.2)
     rack (2.2.6.3)
-    rack-protection (2.2.2)
+    rack-protection (2.2.3)
       rack
     rash (0.3.2)
       hashie (~> 1.2.0)
     ruby2_keywords (0.0.5)
-    sinatra (2.2.2)
+    sinatra (2.2.3)
       mustermann (~> 2.0)
       rack (~> 2.2)
-      rack-protection (= 2.2.2)
+      rack-protection (= 2.2.3)
       tilt (~> 2.0)
-    sinatra-contrib (2.2.2)
+    sinatra-contrib (2.2.3)
       multi_json
       mustermann (~> 2.0)
-      rack-protection (= 2.2.2)
-      sinatra (= 2.2.2)
+      rack-protection (= 2.2.3)
+      sinatra (= 2.2.3)
       tilt (~> 2.0)
-    tilt (2.0.11)
+    tilt (2.1.0)
 
 PLATFORMS
   ruby
