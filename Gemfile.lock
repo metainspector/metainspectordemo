@@ -15,7 +15,7 @@ GEM
       racc (~> 1.4)
     open_uri_redirections (0.1.4)
     racc (1.6.2)
-    rack (2.2.6.3)
+    rack (2.2.6.4)
     rack-protection (2.2.3)
       rack
     rash (0.3.2)
